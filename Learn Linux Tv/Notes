@@ -1,7 +1,33 @@
 ssh abhistar@192.168.4.167
 
+-----
+
 sudo apt install openssh-server
+
+-----
 
 ssh-keygen -t ed25519 -C "ansible"
 
+-----
+
 ssh-copy-id -i ~/filepath.pub 192.168.4.167
+
+-----
+
+ansible all --key-file ~/.ssh/id_debx -i inventory -m ping
+
+-----
+
+vi ansible.cfg
+
+After adding ansible.cfg
+
+ansible all -m ping
+
+-----
+
+ansible all --list-hosts
+
+-----
+
+ansible all -m gather_facts
