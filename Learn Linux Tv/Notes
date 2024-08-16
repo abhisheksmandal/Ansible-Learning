@@ -49,3 +49,13 @@ ansible all -m apt -a "name=nginx state=latest" --become --ask-become-pass
 ansible all -m apt -a "upgrade=dist state=latest" --become --ask-become-pass
 
 ---
+
+ansible-playbook --ask-become-pass install_apache.yml
+
+---
+
+ansible all -m gather_facts --limit 192.168.1.20
+
+---
+
+ansible all -m gather_facts --limit 192.168.1.20 | grep ansible_distrubution
