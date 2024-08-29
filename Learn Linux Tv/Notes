@@ -59,3 +59,45 @@ ansible all -m gather_facts --limit 192.168.1.20
 ---
 
 ansible all -m gather_facts --limit 192.168.1.20 | grep ansible_distrubution
+
+---
+
+ansible-playbook --list-tags site_with_tags.yml
+
+---
+
+ansible-playbook --tags debian --ask-become-pass -i inventory_target Playbooks/site_with_tags.yml
+
+---
+
+ansible-playbook --tags "debian,db" --ask-become-pass -i inventory_target Playbooks/site_with_tags.yml
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
