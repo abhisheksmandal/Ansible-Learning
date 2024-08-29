@@ -1,0 +1,5 @@
+[web_servers]
+root@192.168.1.10
+
+[db_servers]
+root@192.168.4.170

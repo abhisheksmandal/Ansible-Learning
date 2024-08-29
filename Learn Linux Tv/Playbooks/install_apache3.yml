@@ -9,4 +9,4 @@
           - "{{ php_package }}"
         state: latest
         update_cache: yes
-# COMMAND: ansible-playbook --ask-become-pass install_apache3.yml
+# COMMAND: ansible-playbook --ask-become-pass Playbooks/install_apache3.yml

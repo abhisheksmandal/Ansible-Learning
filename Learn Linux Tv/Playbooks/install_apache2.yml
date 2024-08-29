@@ -35,4 +35,4 @@
         name: php
         state: latest
       when: ansible_distrubution == "CentOS"
-# COMMAND: ansible-playbook --ask-become-pass install_apache2.yml
+# COMMAND: ansible-playbook --ask-become-pass Playbooks/install_apache2.yml
