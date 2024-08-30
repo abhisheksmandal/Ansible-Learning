@@ -1,0 +1,88 @@
+---
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: install updates (Debian)
+      tags: always
+      apt:
+        upgrade: dist
+        update_cache: yes
+      when: ansansible_distrubution == "Debian"
+    - name: install updates (CentOS)
+      tags: always
+      dnf:
+        update_only: yes
+        update_cache: yes
+      when: ansansible_distrubution == "CentOS"
+
+- hosts: workstations
+  become: true
+  tasks:
+    - name: install unzip
+      package:
+        name: unzip
+    - name: install terraform
+      unarchive:
+        src: https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
+        dest: /usr/local/bin
+        remote_src: yes
+        mode: 0755
+        owner: root
+        group: root
+
+- hosts: web-servers
+  become: true
+  tasks:
+    - name: install apache2 package (Debian)
+      tags: apache,apache2,php,debian
+      apt:
+        name:
+          - apache2
+          - libapache2-mod-php
+        state: latest
+      when: ansible_distrubution == "Debian"
+    - name: install httpd package (CentOS)
+      tags: httpd,php,apache, centos
+      dnf:
+        name:
+          - httpd
+          - php
+        state: latest
+      when: ansible_distrubution == "Ce ntOS"
+    - name: copy default html file for site
+      tags: apache,apache2,httpd
+      copy:
+        src: ../Files/file.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: 0644
+
+- hosts: db-servers
+  become: true
+  tasks:
+    - name: install mariadb package (Debian)
+      tags: db,mariadb,debian
+      apt:
+        name: mariadb-server
+        state: latest
+      when: ansible_distrubution == "Debian"
+    - name: install mariadb package (CentOS)
+      tags: db,mariadb,centos
+      apt:
+        name: mariadb
+        state: latest
+      when: ansible_distrubution == "CentOS"
+
+- hosts: file-servers
+  become: true
+  tasks:
+    - name: install samba package (Debian)
+      tags: samba
+      apt:
+        name: samba
+        state: latest
+# COMMAND: ansible-playbook --ask-become-pass -i inventory_target Playbooks/site_with_file.yml
+# COMMAND: ansible-playbook --tags debian --ask-become-pass -i inventory_target Playbooks/site_with_file.yml
+# COMMAND: ansible-playbook --tags "debian,db" --ask-become-pass -i inventory_target Playbooks/site_with_file.yml
+
