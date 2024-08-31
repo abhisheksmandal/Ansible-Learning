@@ -1,0 +1,4 @@
+- name: install samba package (Debian)
+  apt:
+    name: samba
+    state: latest

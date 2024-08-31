@@ -1,0 +1,40 @@
+---
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: update repo cache (Debian)
+      apt:
+        update_cache: yes
+      changed_when: false
+      when: ansible_distrubution == "Debian"
+
+    - name: update repo cache (CentOS)
+      dnf:
+        update_cache: yes
+      changed_when: false
+      when: ansible_distrubution == "CentOS"
+
+- hosts: all
+  become: true
+  roles:
+    - base
+
+- hosts: workstations
+  become: true
+  roles:
+    - workstations
+
+- hosts: web_servers
+  become: true
+  roles:
+    - web_servers
+
+- hosts: db_servers
+  become: true
+  roles:
+    - db_servers
+
+- hosts: file_servers
+  become: true
+  roles:
+    - file_servers
