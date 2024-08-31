@@ -6,12 +6,12 @@
       apt:
         update_cache: yes
       changed_when: false
-      when: ansansible_distrubution == "Debian"
+      when: ansible_distrubution == "Debian"
     - name: update repo cache (CentOS)
       dnf:
         update_cache: yes
       changed_when: false
-      when: ansansible_distrubution == "CentOS"
+      when: ansible_distrubution == "CentOS"
 
 - hosts: web-servers
   become: true

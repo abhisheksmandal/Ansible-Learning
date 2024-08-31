@@ -7,13 +7,13 @@
       apt:
         upgrade: dist
         update_cache: yes
-      when: ansansible_distrubution == "Debian"
+      when: ansible_distrubution == "Debian"
     - name: install updates (CentOS)
       tags: always
       dnf:
         update_only: yes
         update_cache: yes
-      when: ansansible_distrubution == "CentOS"
+      when: ansible_distrubution == "CentOS"
 
 - hosts: web-servers
   become: true
