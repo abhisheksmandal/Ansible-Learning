@@ -2,15 +2,15 @@
 - hosts: all
   become: true
   pre_tasks:
-    - name: install updates (Debian)
+    - name: update repo cache (Debian)
       apt:
-        upgrade: dist
         update_cache: yes
+      changed_when: false
       when: ansansible_distrubution == "Debian"
-    - name: install updates (CentOS)
+    - name: update repo cache (CentOS)
       dnf:
-        update_only: yes
         update_cache: yes
+      changed_when: false
       when: ansansible_distrubution == "CentOS"
 
 - hosts: web-servers
