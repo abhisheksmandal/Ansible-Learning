@@ -9,7 +9,7 @@
         groups: root
     - name: add ssh key for abhistar
       tags: always
-      authorized_keys:
+      ansible.builtin.authorized_key:
         user: abhistar
         key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOd3XPLEGz3/4P8m8HXJ1ANO5sU/JQSPjxc6BNSSFT5Q abhishek@astra"
     - name: add sudoers file for abhistar

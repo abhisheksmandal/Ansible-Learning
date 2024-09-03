@@ -2,10 +2,10 @@
   apt:
     name: mariadb-server
     state: latest
-  when: ansible_distrubution == "Debian"
+  when: ansible_distribution == "Debian"
 
 - name: install mariadb package (CentOS)
   apt:
     name: mariadb
     state: latest
-  when: ansible_distrubution == "CentOS"
+  when: ansible_distribution == "CentOS"

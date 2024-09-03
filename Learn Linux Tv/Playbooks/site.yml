@@ -6,12 +6,12 @@
       apt:
         update_cache: yes
       changed_when: false
-      when: ansible_distrubution == "Debian"
+      when: ansible_distribution == "Debian"
     - name: update repo cache (CentOS)
       dnf:
         update_cache: yes
       changed_when: false
-      when: ansible_distrubution == "CentOS"
+      when: ansible_distribution == "CentOS"
 
 - hosts: web-servers
   become: true
@@ -22,14 +22,14 @@
           - apache2
           - libapache2-mod-php
         state: latest
-      when: ansible_distrubution == "Debian"
+      when: ansible_distribution == "Debian"
     - name: install httpd package (CentOS)
       dnf:
         name:
           - httpd
           - php
         state: latest
-      when: ansible_distrubution == "CentOS"
+      when: ansible_distribution == "CentOS"
 
 - hosts: db-servers
   become: true
@@ -38,12 +38,12 @@
       apt:
         name: mariadb-server
         state: latest
-      when: ansible_distrubution == "Debian"
+      when: ansible_distribution == "Debian"
     - name: install mariadb package (CentOS)
       apt:
         name: mariadb
         state: latest
-      when: ansible_distrubution == "CentOS"
+      when: ansible_distribution == "CentOS"
 
 - hosts: file-servers
   become: true
