@@ -1,0 +1,5 @@
+---
+- name: Notify user management changes
+  debug:
+    msg: "User management task completed"
+

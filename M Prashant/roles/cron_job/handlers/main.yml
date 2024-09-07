@@ -1,0 +1,5 @@
+---
+- name: Notify cron job addition
+  debug:
+    msg: "Cron job added"
+

@@ -1,0 +1,9 @@
+---
+- name: Create user on remote server
+  user:
+    name: "{{ username }}"
+    state: present
+    shell: /bin/bash
+  notify:
+    - Notify user management changes
+

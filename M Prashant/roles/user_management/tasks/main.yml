@@ -1,0 +1,12 @@
+---
+- name: Create user
+  include_tasks: create_user.yml
+
+- name: Update user password
+  include_tasks: update_password.yml
+
+- name: Find and stop process
+  include_tasks: find_stop_process.yml
+
+- name: Manage file permissions
+  include_tasks: manage_permissions.yml

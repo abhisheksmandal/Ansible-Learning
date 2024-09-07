@@ -1,0 +1,10 @@
+---
+- name: Add cron job
+  cron:
+    name: "my_cron_job"
+    minute: "0"
+    hour: "5"
+    job: "/path/to/script.sh"
+  notify:
+    - Notify cron job addition
+

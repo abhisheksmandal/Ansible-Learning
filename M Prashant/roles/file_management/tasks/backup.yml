@@ -1,0 +1,3 @@
+---
+- name: Backup files on remote server
+  command: cp -r /tmp/file /tmp/file_backup

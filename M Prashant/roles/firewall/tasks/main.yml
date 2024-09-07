@@ -1,0 +1,7 @@
+---
+- name: Enable service in firewall
+  ufw:
+    rule: allow
+    name: "{{ service_name }}"
+  notify:
+    - Notify firewall changes

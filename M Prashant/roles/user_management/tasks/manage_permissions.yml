@@ -1,0 +1,9 @@
+---
+- name: Set permissions on files
+  file:
+    path: "{{ file_path }}"
+    state: file
+    mode: "{{ file_mode }}"
+  notify:
+    - Notify user management changes
+

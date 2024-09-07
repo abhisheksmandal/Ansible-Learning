@@ -1,0 +1,10 @@
+---
+app_name: "nginx"
+file_url: "https://www.edureka.co/blog/wp-content/uploads/2018/11/Ansible-Cheat_Sheet_Edureka.pdf"
+download_path: "/tmp/"
+username: "ansible-user"
+password: "12345678"
+process_name: "nginx"
+file_path: "/tmp/file"
+file_mode: "0777"
+service_name: "Nginx Full"

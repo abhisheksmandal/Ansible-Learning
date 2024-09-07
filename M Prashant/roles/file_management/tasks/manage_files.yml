@@ -1,0 +1,9 @@
+---
+- name: Create, delete, and set permissions on files
+  file:
+    path: "{{ item.path }}"
+    state: "{{ item.state }}"
+    mode: "{{ item.mode | default(omit) }}"
+  with_items:
+    - { path: "/tmp/file", state: "touch", mode: "0644" }
+    - { path: "/tmp/file_to_delete", state: "absent" }

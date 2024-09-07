@@ -1,0 +1,6 @@
+---
+- name: Download files on remote server
+  get_url:
+    url: "{{ file_url }}"
+    dest: "{{ download_path }}"
+

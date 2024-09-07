@@ -1,0 +1,7 @@
+---
+- name: Find and stop process if it is running
+  shell: |
+    pgrep -f "{{ process_name }}" | xargs -r kill -9
+  ignore_errors: yes
+  notify:
+    - Notify user management changes

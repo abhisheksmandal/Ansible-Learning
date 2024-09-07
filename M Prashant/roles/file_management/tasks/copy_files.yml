@@ -1,0 +1,7 @@
+---
+- name: Copy files to remote server
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "file_to_copy.txt", dest: "/tmp/remote_file" }

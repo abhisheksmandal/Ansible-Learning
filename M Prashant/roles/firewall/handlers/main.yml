@@ -1,0 +1,5 @@
+---
+- name: Notify firewall changes
+  debug:
+    msg: "Firewall rule applied"
+

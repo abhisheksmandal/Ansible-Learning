@@ -1,0 +1,5 @@
+---
+- name: Notify file management change
+  debug:
+    msg: "File management task completed"
+

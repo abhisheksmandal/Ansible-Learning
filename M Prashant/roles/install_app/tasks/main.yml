@@ -1,0 +1,8 @@
+---
+- name: Install application on remote server
+  apt:
+    name: "{{ app_name }}"
+    state: present
+  notify:
+    - Restart service
+

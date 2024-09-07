@@ -1,0 +1,12 @@
+---
+- name: Create, delete, and set permissions on files
+  include_tasks: manage_files.yml
+
+- name: Backup files
+  include_tasks: backup.yml
+
+- name: Copy files
+  include_tasks: copy_files.yml
+
+- name: Download files
+  include_tasks: download_files.yml
